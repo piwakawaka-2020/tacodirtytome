@@ -20,12 +20,6 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   dbFunctions.getTacoById(req.params.id)
   .then(taco => {
-    console.log(taco)
-    delete taco.base_layers_id
-    delete taco.mixin_id
-    delete taco.condiments_id
-    delete taco.shells_id
-    delete taco.seasonings_id
 
     const formattedTaco = {
       shell: {
