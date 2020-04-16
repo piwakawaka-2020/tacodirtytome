@@ -21,11 +21,11 @@ exports.seed = function (knex) {
         },
         {
           id: 3,
-          base_layers_id: "rowValue3",
-          mixin_id: "",
-          condiments_id: "",
-          shells_id: "",
-          seasonings_id: ""
+          base_layers_id: 3,
+          mixin_id: 3,
+          condiments_id: 3,
+          shells_id: 3,
+          seasonings_id: 3
         }
       ]);
     });
