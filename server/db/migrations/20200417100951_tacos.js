@@ -2,11 +2,11 @@
 exports.up = function(knex) {
   return knex.schema.createTable('tacos', table => {
     table.increments('id')
-    table.int('base_layers_id')
-    table.int('mixin_id')
-    table.int('condiments_id')
-    table.int('shells_id')
-    table.int('seasonings_id')
+    table.integer('base_layers_id')
+    table.integer('mixin_id')
+    table.integer('condiments_id')
+    table.integer('shells_id')
+    table.integer('seasonings_id')
   })
 };
 

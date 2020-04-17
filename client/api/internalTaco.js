@@ -8,8 +8,8 @@ export function getAllTacos() {
 }
 
 export function addTaco(taco) {
-    return request
-    .post('/v1/taco')
+    return request.post('/v1/taco')
+
     .send(taco)
     .then(res => {
         return res.body
