@@ -20,8 +20,50 @@ function getTacoById(id, db = connection) {
   .then(taco => taco[0])
 }
 
-function addTaco(mixData, conData, shellData, baseData, seaData, db = connection) {
+function addTaco(tacoData, db = connection) {
+  const ids = {
+    base_layers_id: 0,
+    mixin_id: 0,
+    condiments_id: 0,
+    shells_id: 0,
+    seasonings_id: 0
+  }
 
+  return db('base_layers')
+    .insert({...tacoData.base_layer})
+    .then(id => {
+      ids.base_layers_id = id[0]
+      
+      return db('mixins')
+      .insert({...tacoData.mixin})
+      .then(id => {
+        ids.mixin_id = id[0]
+
+        return db('shells')
+        .insert({...tacoData.shell})
+        .then(id => {
+          ids.shells_id = id[0]
+
+          return db('condiments')
+          .insert({...tacoData.condiment}) 
+          .then(id => {
+            ids.condiments_id = id[0]
+
+            return db('seasonings')
+            .insert({...tacoData.seasonings})
+            .then(id => {
+              ids.seasonings_id = id[0]
+
+              return db('tacos')
+              .insert({...ids})
+              .then(id => {
+                return id[0]
+              })
+            })
+          })
+        })
+      })
+    })
 }
 
 module.exports = {

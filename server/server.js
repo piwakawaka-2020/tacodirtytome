@@ -2,11 +2,11 @@ const express = require('express')
 
 const server = express()
 
-const randTaco = require('./routes/savedTaco')
+const taco = require('./routes/savedTaco')
 
 server.use(express.json())
 server.use(express.static('public'))
 
-server.use('/v1/savedTacos', randTaco)
+server.use('/v1/taco', taco)
 
 module.exports = server
