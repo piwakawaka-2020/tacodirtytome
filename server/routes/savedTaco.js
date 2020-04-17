@@ -17,6 +17,13 @@ router.get('/', (req, res) => {
   })
 })
 
+router.post('/', (req, res) => {
+  dbFunctions.addTaco(req.body)
+  .then(() => {
+    res.sendStatus(201)
+  })
+})
+
 router.get('/:id', (req, res) => {
   dbFunctions.getTacoById(req.params.id)
   .then(taco => {
