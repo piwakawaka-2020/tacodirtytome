@@ -10,13 +10,24 @@ class TacoSearch extends React.Component {
   
   renderTaco(taco) {
     return (
-      <>
-        <p>Condiment: {taco.condiment.name}</p>
-        <p>Mixin: {taco.mixin.name}</p>
-        <p>Base layer: {taco.base_layer.name}</p>
-        <p>Shell: {taco.shell.name}</p>
-        <p>Seasoning: {taco.seasoning.name}</p>
-      </>
+      <div className='container'>
+        <h2 className='title'>Condiment: {taco.condiment.name}</h2>
+        <p>{taco.condiment.recipe}</p>
+        <br/>
+        <h2 className='title'>Mixin: {taco.mixin.name}</h2>
+        <p>{taco.mixin.recipe}</p>
+        <br/>
+        <h2 className='title'>Base layer: {taco.base_layer.name}</h2>
+        <p>{taco.base_layer.recipe}</p>
+        <br/>
+        <h2 className='title'>Shell: {taco.shell.name}</h2>
+        <p>{taco.shell.recipe}</p>
+        <br/>
+        <h2 className='title'>Seasoning: {taco.seasoning.name}</h2>
+        <p>{taco.seasoning.recipe}</p>
+        <br/>
+        <button className='button' onClick={this.saveTaco(taco)}>Save this taco</button>
+      </div>
     )
   }
 
@@ -66,32 +77,3 @@ class TacoSearch extends React.Component {
 }
 
 export default TacoSearch
-
-// Format for addTaco:
-// {
-//     "base_layer": {
-//         "base_name": "taco test",
-//         "base_url": "www.tacos",
-//         "base_recipe": "Taco taco taco"
-//     },
-//     "mixin": {
-//         "mix_name": "mix",
-//         "mix_url": "www.mix",
-//         "mix_recipe": "mix it up"
-//     },
-//     "shell": {
-//         "shell_name": "taco test",
-//         "shell_url": "www.tacos",
-//         "shell_recipe": "Taco taco taco"
-//     },
-//     "condiment": {
-//         "con_name": "mix",
-//         "con_url": "www.mix",
-//         "con_recipe": "mix it up"
-//     },
-//     "seasonings": {
-//         "sea_name": "taco test",
-//         "sea_url": "www.tacos",
-//         "sea_recipe": "Taco taco taco"
-//     }
-// }
