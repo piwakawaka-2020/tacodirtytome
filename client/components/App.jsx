@@ -49,22 +49,26 @@ class App extends React.Component {
     return (
       <Router>
         <div className="block">
-          <nav className="navbar">
+          <nav className="navbar has-background-primary">
             <div className="navbar-brand">
-              <Link to="" className="navbar-item has-background-primary">
+              <Link to="" className="navbar-item">
                 <h1 className="title is-3 ">Tacodirtytome</h1>
               </Link>
             </div>
           </nav>
         </div>
-        <div>
-          <button className="button" onClick={this.randomOnClickHandler.bind(this)}> Get Random Taco </button>
-          {/* <button className="button" onClick={this.fullOnClickHandler.bind(this)}> Get Full Random Taco </button> */}
+        <div className='section'>
+          <div className='container'>
+            <button className="button" onClick={this.randomOnClickHandler.bind(this)}> Get Random Taco </button>
+            {/* <button className="button" onClick={this.fullOnClickHandler.bind(this)}> Get Full Random Taco </button> */}
+            <Route path='/' render={(props) => (<TacoSearch {...props} data={this.state} />)} />
+            <Route path='/' component={TacoList}/>
+            {/* <Route path='/' component={TacoDetail}/> */}
+            <Route path='/' component={TacoForm} />
+          </div>
+
         </div>
-        <Route path='/' render={(props) => (<TacoSearch {...props} data={this.state} />)} />
-        <Route path='/' component={TacoList}/>
-        {/* <Route path='/' component={TacoDetail}/> */}
-        <Route path='/' component={TacoForm} />
+
       </Router>
     )
   }
