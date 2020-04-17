@@ -57,7 +57,8 @@ class TacoSearch extends React.Component {
     console.log(taco)
     return (
       <>
-      {taco != undefined ? this.renderTaco(taco) : <p>please wait while loading</p> }
+      {this.props.data.mixin ? this.renderTaco(taco) : <img id='tacoImg' src='images/dancingtaco.gif' /> }
+      <br></br>
       <button className='button' onClick={this.saveTaco(taco)}>Save this taco</button>
       </>
     )
