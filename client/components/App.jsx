@@ -5,7 +5,7 @@ import TacoSearch from './TacoSearch'
 import TacoList from './TacoList'
 import TacoDetail from './TacoDetail'
 
-import { getRandomTaco, getRandomFullTaco } from '../api/taco'
+import { getRandomTaco, getRandomFullTaco } from '../api/externalTaco'
 
 class App extends React.Component {
   state = {
@@ -16,8 +16,22 @@ class App extends React.Component {
     seasoning: ''
   }
 
-  onClickHandler = event => {
+  randomOnClickHandler = event => {
     getRandomTaco()
+    .then((taco) => {
+      console.log(taco)
+      this.setState({
+        condiment: taco.condiment,
+        mixin: taco.mixin,
+        base_layer: taco.base_layer,
+        shell: taco.shell,
+        seasoning: taco.seasoning
+      })
+    })
+  }
+
+  fullOnClickHandler = event => {
+    getRandomFullTaco()
     .then((taco) => {
       console.log(taco)
       this.setState({
@@ -43,9 +57,10 @@ class App extends React.Component {
           </nav>
         </div>
         <div>
-          <button className="button" onClick={this.onClickHandler.bind(this)}> Get Random Taco </button>
+          <button className="button" onClick={this.randomOnClickHandler.bind(this)}> Get Random Taco </button>
+          <button className="button" onClick={this.fullOnClickHandler.bind(this)}> Get Full Random Taco </button>
         </div>
-        <Route to='/' component={TacoSearch}/>
+        <Route to='/' render={(props) => (<TacoSearch {...props} data={this.state} />)} />
         <Route to='/list' component={TacoList}/>
         <Route to='/list/:id' component={TacoDetail}/>
       </Router>
