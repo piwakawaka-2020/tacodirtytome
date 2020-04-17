@@ -2,6 +2,9 @@
   "name": "taco_dirty_to_me",
   "version": "0.2.2",
   "description": "For taco randomness",
+  "engines": {
+    "node": "13.x.x"
+  },
   "repository": "https://github.com/dev-academy-challenges/boilerplate-react-webpack.git",
   "main": "server/index.js",
   "author": "EDA",
