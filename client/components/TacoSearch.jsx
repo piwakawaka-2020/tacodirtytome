@@ -26,7 +26,6 @@ class TacoSearch extends React.Component {
         <h2 className='title'>Seasoning: {taco.seasoning.name}</h2>
         <p>{taco.seasoning.recipe}</p>
         <br/>
-        <button className='button' onClick={this.saveTaco(taco)}>Save this taco</button>
       </div>
     )
   }
