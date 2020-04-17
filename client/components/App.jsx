@@ -4,6 +4,7 @@ import { HashRouter as Router, Route, Link } from 'react-router-dom'
 import TacoSearch from './TacoSearch'
 import TacoList from './TacoList'
 import TacoDetail from './TacoDetail'
+import TacoForm from './TacoForm'
 
 import { getRandomTaco, getRandomFullTaco } from '../api/externalTaco'
 
@@ -60,9 +61,10 @@ class App extends React.Component {
           <button className="button" onClick={this.randomOnClickHandler.bind(this)}> Get Random Taco </button>
           {/* <button className="button" onClick={this.fullOnClickHandler.bind(this)}> Get Full Random Taco </button> */}
         </div>
-        <Route to='/' render={(props) => (<TacoSearch {...props} data={this.state} />)} />
-        <Route to='/list' component={TacoList}/>
-        <Route to='/list/:id' component={TacoDetail}/>
+        <Route path='/' render={(props) => (<TacoSearch {...props} data={this.state} />)} />
+        <Route path='/' component={TacoList}/>
+        {/* <Route path='/' component={TacoDetail}/> */}
+        <Route path='/' component={TacoForm} />
       </Router>
     )
   }

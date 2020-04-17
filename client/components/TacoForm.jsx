@@ -73,6 +73,9 @@ class TacoForm extends React.Component {
 
     render() {
         return (
+          <div className='section'>
+
+          
             <form onSubmit={this.handleSubmit}>
                 <label class='label field'>
                     Base Layer:
@@ -105,6 +108,7 @@ class TacoForm extends React.Component {
                 </label>
                 <input class="button is-link is-light" type="submit" value="Add Recipe"/>
             </form>
+          </div>
         )
     }
 }
