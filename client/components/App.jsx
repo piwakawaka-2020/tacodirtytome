@@ -19,7 +19,7 @@ class App extends React.Component {
   randomOnClickHandler = event => {
     getRandomTaco()
     .then((taco) => {
-      console.log(taco)
+      // console.log(taco)
       this.setState({
         condiment: taco.condiment,
         mixin: taco.mixin,
@@ -33,7 +33,7 @@ class App extends React.Component {
   fullOnClickHandler = event => {
     getRandomFullTaco()
     .then((taco) => {
-      console.log(taco)
+      // console.log(taco)
       this.setState({
         condiment: taco.condiment,
         mixin: taco.mixin,
@@ -58,7 +58,7 @@ class App extends React.Component {
         </div>
         <div>
           <button className="button" onClick={this.randomOnClickHandler.bind(this)}> Get Random Taco </button>
-          <button className="button" onClick={this.fullOnClickHandler.bind(this)}> Get Full Random Taco </button>
+          {/* <button className="button" onClick={this.fullOnClickHandler.bind(this)}> Get Full Random Taco </button> */}
         </div>
         <Route to='/' render={(props) => (<TacoSearch {...props} data={this.state} />)} />
         <Route to='/list' component={TacoList}/>
